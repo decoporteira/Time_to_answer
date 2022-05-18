@@ -1,5 +1,14 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "4.6",
+    "jquery": "3.6.0",
+    "jquery-easing": "^0.0.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/decoporteira/Time_to_answer.git",
+  "author": "Andre Pereira <andreporteira@gmail.com>",
+  "license": "MIT"
 }
