@@ -21,13 +21,17 @@
                                             <td class="sorting_1"><%= admin.id %></td>
                                             <td><%= admin.email %></td>
                                             <td style="width: 10%">
-                                            <a href="#" class="btn btn-primary btn-circle btn-sm">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
                                             
+
+                                            <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle btn-sm" do %>
+                                                <i class="fa fa-edit"></i>
+                                            
+                                            <% end %>
+
+                                            <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-danger btn-circle btn-sm" do %>
+                                                <i class="fas fa-trash"></i>
+                                            
+                                            <% end %>
                                             </td>
                                             
                                         </tr>
