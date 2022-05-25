@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'faker'
 gem 'awesome_print'
-
+gem 'htmlbeautifier'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
