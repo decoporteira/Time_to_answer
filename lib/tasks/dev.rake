@@ -11,6 +11,7 @@ namespace :dev do
       show_spinner("Cadastrando admins extra...") { %x(rails dev:add_extra_admins) }
       show_spinner("Cadastrando usuário padrão...") { %x(rails dev:add_default_user) }
       show_spinner("Cadastrando assuntos base...") { %x(rails dev:add_subjects) }
+      show_spinner("Cadastrando questões e respostas base...") { %x(rails dev:add_answers_and_questions) }
       #%x(rails dev:add_mining_types)
     else
       puts "Você não está em ambiente de desenvolvimento"
@@ -52,6 +53,18 @@ namespace :dev do
     file_path = File.join(DEFAULT_FILES_PATH, file_name)
     File.open(file_path, "r").each do |line|
       Subject.create!(description: line.strip)
+    end
+  end
+
+  desc "Adiciona perguntas e respostas"
+  task add_answers_and_questions: :environment do
+    Subject.all.each do |subject|
+      rand(5..10).times do |i|
+        Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject,
+        )
+      end
     end
   end
 

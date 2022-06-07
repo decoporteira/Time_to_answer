@@ -1,0 +1,47 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Lista de Questões</h1>
+</div>
+<hr>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+      <thead>
+        <tr role="row">
+          <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 0.5rem;">ID</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 2rem;">Assunto</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20rem;">Pergunta</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 1rem;"><%= link_to new_admins_backoffice_question_path, class:"btn btn-success btn-circle btn-sm" do %>
+              <i class="fa fa-plus"></i>
+            <% end %></th>
+        </thead>
+        <tfoot>
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">Assunto</th>
+            <th rowspan="1" colspan="1">Pergunta</th>
+            <th rowspan="1" colspan="1"><%= link_to new_admins_backoffice_question_path, class:"btn btn-success btn-circle btn-sm" do %>
+                <i class="fa fa-plus"></i>
+              <% end %>
+            </th>
+          </tfoot>
+          <tbody>
+            <% @questions.each do |question|%>
+              <tr class="odd">
+                <td class="sorting_1"><%= question.id %></td>
+                <td><%= question.subject.description.truncate(30) %></td>
+                <td><%= question.description.truncate(90) %></td>
+                <td style="width: 10%">
+                  <%= link_to edit_admins_backoffice_question_path(question), class:"btn btn-primary btn-circle btn-sm" do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                  <%= link_to admins_backoffice_question_path(question), method: :delete, class:"btn btn-danger btn-circle btn-sm", data: {confirm: "Deseja realmente excluir esse pergunta?"} do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @questions %>
+      </div>
+    </div>
