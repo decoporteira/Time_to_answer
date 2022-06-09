@@ -7,18 +7,18 @@
     <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
       <thead>
         <tr role="row">
-          <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 0.5rem;">ID</th>
-          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 2rem;">Assunto</th>
-          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20rem;">Pergunta</th>
+          <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 0.5rem;"><%= translate_attribute(@questions, :id)%></th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 2rem;"><%= translate_attribute(@questions, :subject) %></th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20rem;"><%= translate_attribute(@questions, :description) %></th>
           <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 1rem;"><%= link_to new_admins_backoffice_question_path, class:"btn btn-success btn-circle btn-sm" do %>
               <i class="fa fa-plus"></i>
             <% end %></th>
         </thead>
         <tfoot>
           <tr>
-            <th rowspan="1" colspan="1">ID</th>
-            <th rowspan="1" colspan="1">Assunto</th>
-            <th rowspan="1" colspan="1">Descrição</th>
+            <th rowspan="1" colspan="1"><%=translate_attribute(@questions, :id)%></th>
+            <th rowspan="1" colspan="1"><%=translate_attribute(@questions, :subject)%></th>
+            <th rowspan="1" colspan="1"><%=translate_attribute(@questions, :description)%></th>
             <th rowspan="1" colspan="1"><%= link_to new_admins_backoffice_question_path, class:"btn btn-success btn-circle btn-sm" do %>
                 <i class="fa fa-plus"></i>
               <% end %>
