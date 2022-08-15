@@ -2,3 +2,5 @@
   messages:
     listing: Listando %{model}
     confirm_with: Você deseja realmente excluir %{item}
+    confirm_password: Confirmar senha
+    
