@@ -7,6 +7,7 @@
 //= require jquery-easing/dist/jquery.easing.1.3.umd.min
 //= require sb-admin-2.min
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
+//= require cocoon
 
 
 
