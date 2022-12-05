@@ -42,6 +42,7 @@ gem "tty-spinner"
 gem "kaminari"
 gem "kaminari-i18n"
 gem "cocoon"
+gem 'rails_db', '2.3.0'
 
 gem "rails-i18n", "~> 5.1"
 # Reduces boot times through caching; required in config/boot.rb
