@@ -3,7 +3,10 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
+    # Abir um console dentro da aplicação
+    console
     @admins = Admin.all.page(params[:page])
+    
   end
 
   def new
