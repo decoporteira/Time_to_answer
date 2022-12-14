@@ -101,27 +101,32 @@
 
       <div class="collapse navbar-collapse" id="navbarsExample03">
         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+          <% unless user_signed_in? %>
+  
+
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <%= link_to 'Entrar', new_user_session_path, class:"nav-link"%>
+            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            
+            <%= link_to 'Cadastrar', new_user_registration_path, class:"nav-link" %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+          <%else%>
+          
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.email  %></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              
+              <li>
+              <%= link_to 'Sair', destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+              </li>
+              
             </ul>
           </li>
         </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </form>
+        <% end %>
       </div>
     </div>
   </nav>
