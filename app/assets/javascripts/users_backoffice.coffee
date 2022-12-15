@@ -10,4 +10,5 @@
 //= require custom.min
 //= require custom
 //= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
+//= require ifightcrime-bootstrap-growl-2813755/jquery.bootstrap-growl
 

@@ -1,5 +1,4 @@
-<h1>Site::Welcome#index</h1>
-<p>Find me in app/views/site/welcome/index.html.erb</p>
+
 
 <% if user_signed_in? %>
   <p>Usuário está logado como: <%= current_user.email  %></p>
@@ -14,6 +13,4 @@
   <p>Administrador não está logado</p>
 <% end %>
 
-<p><%= link_to 'Área do usuário', users_backoffice_welcome_index_path, class:"btn btn-primary"%></p>
-
-<p><%= link_to 'Área do admin', admins_backoffice_welcome_index_path, class:"btn btn-primary" %></p>
+<p>Find me in app/views/site/welcome/index.html.erb</p>
