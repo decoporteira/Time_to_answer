@@ -84,7 +84,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
+   
   </head>
   <body>
 
@@ -92,7 +92,7 @@
 <main>
   
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-2" aria-label="Third navbar example">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Time To Answer</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,7 +117,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.email  %></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              
+               <%= link_to 'Perfil', users_backoffice_welcome_index_path, class:"dropdown-item" %></li>
               <hr>
             
               <li>
@@ -137,18 +138,37 @@
 
   
 
-    <div>
+    
       <div class="bg-light p-5 rounded">
         <div class="col-sm-8 mx-auto">
           <h1>Bem vindo!</h1>
 
-          <%= yield %>
+          
+
+            <% if user_signed_in? %>
+              <p>Usuário está logado como: <%= current_user.email  %></p>
+              
+            <% else %>
+              <p>Usuário não está logado</p>
+            <% end %>
+
+            <% if admin_signed_in? %>
+              <p>Administrador está logado como: <%= current_admin.email  %></p>
+            <% else %>
+              <p>Administrador não está logado</p>
+            <% end %>
+
+            <p>Find me in app/views/site/welcome/index.html.erb</p>
+
+
+
 
     
          
         </div>
       </div>
-    </div>
+      <%= yield %>
+    
   </div>
 </main>
 

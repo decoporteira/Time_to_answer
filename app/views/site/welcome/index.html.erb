@@ -1,16 +1,8 @@
-
-
-<% if user_signed_in? %>
-  <p>Usuário está logado como: <%= current_user.email  %></p>
-  
-<% else %>
-  <p>Usuário não está logado</p>
+<% @questions.each do |question| %>
+<ul class="list-group mt-3">
+  <li class="list-group-item bg-light fs-6 fw-semibold"><%= question.description%></li>
+  <% question.answers.each do |answer| %>
+  <li class="list-group-item"><%= answer.description %></li>
+  <%end%>
+</ul>
 <% end %>
-
-<% if admin_signed_in? %>
-  <p>Administrador está logado como: <%= current_admin.email  %></p>
-<% else %>
-  <p>Administrador não está logado</p>
-<% end %>
-
-<p>Find me in app/views/site/welcome/index.html.erb</p>
