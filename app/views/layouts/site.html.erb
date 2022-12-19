@@ -27,7 +27,7 @@
 
     
 
-<%# <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> %>
+
 
     <style>
       .bd-placeholder-img {
@@ -129,7 +129,7 @@
           </li>
         </ul>
         <% end %>
-         <%= form_with(url: site_search_path, local: true, method: :get, class:"form-control") do |form| %>
+         <%= form_with(url: site_search_path, local: true, method: :get) do |form| %>
           <%= form.text_field :term, class:"form-control", placeholder:"Search"  %>
             
          <%end%>
@@ -181,7 +181,7 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'site' %>
-    <%# <script src="../assets/dist/js/ bootstrap.bundle.min.js"></script> %>
+  
     <% if notice %>
         <script>
           $.bootstrapGrowl('<%= notice %>', {

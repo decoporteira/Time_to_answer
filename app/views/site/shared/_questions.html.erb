@@ -1,8 +1,9 @@
 <% @questions.each do |question| %>
-<ul class="list-group mt-3">
+<ul class="list-group mt-3 mb-2">
   <li class="list-group-item bg-light fs-6 fw-semibold"><%= question.description%></li>
   <% question.answers.each do |answer| %>
   <li class="list-group-item"><%= answer.description %></li>
   <%end%>
 </ul>
 <% end %>
+ <%= paginate @questions %>
