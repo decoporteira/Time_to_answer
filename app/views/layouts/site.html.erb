@@ -149,30 +149,16 @@
     
       <div class="bg-light p-5 rounded">
         <div class="col-sm-8 mx-auto">
-          <h1>Bem vindo!</h1>
-
           
+          <%unless params[:term] %>
 
-            <% if user_signed_in? %>
-              <p>Usuário está logado como: <%= current_user.email  %></p>
-              
-            <% else %>
-              <p>Usuário não está logado</p>
-            <% end %>
+          <h3>Última perguntas cadastradas:</h3>
 
-            <% if admin_signed_in? %>
-              <p>Administrador está logado como: <%= current_admin.email  %></p>
-            <% else %>
-              <p>Administrador não está logado</p>
-            <% end %>
-
-            <p>Find me in app/views/site/welcome/index.html.erb</p>
+          <%else%>
+          <h3>Resultado para o termo: "<%= params[:term]%>"</h3>
+          <%end%>
 
 
-
-
-    
-         
         </div>
       </div>
       <%= yield %>
