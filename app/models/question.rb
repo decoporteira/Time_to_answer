@@ -5,14 +5,9 @@ class Question < ApplicationRecord
   # Kainari
   paginates_per 5 
 
-  def self.search(page, term)
-    Question.includes(:answers)
-                          .where("lower(description) LIKE ?", "%#{term.downcase}%")
-                          .page(page)
-  end
+  #Scopes  
+  scope :_search_, -> (page, term){ includes(:answers).where("lower(description) LIKE ?", "%#{term.downcase}%").page(page)}
+  
+  scope :last_questions, -> (page) {includes(:answers).order("created_at desc").page(page)}
 
-  def self.last_questions(page)
-    Question.includes(:answers).order("created_at desc").page(page)
-
-  end
 end
