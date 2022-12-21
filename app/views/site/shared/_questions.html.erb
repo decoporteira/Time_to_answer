@@ -1,9 +1,43 @@
+ <div class="bg-light p-5 rounded">
+        <div class="col-sm-8 mx-auto">
+          
+          <%unless params[:term] %>
+
+          <h3>Última perguntas cadastradas:</h3>
+
+          <%else%>
+          <h3>Resultado para o termo: "<%= params[:term]%>"</h3>
+          <%end%>
+
+
+        </div>
+      </div>
+
 <% @questions.each do |question| %>
+<%= form_with url: site_answer_path, local: true do |form| %>
 <ul class="list-group mt-3 mb-2">
   <li class="list-group-item bg-light fs-6 fw-semibold"><%= question.description%></li>
   <% question.answers.each do |answer| %>
-  <li class="list-group-item"><%= answer.description %></li>
+    
+
+
+    
+    <li class="list-group-item">
+
+      <div class="radio">
+        <label>
+          <%= radio_button_tag "answer_id", answer.id %> <%= answer.description %>
+        </label>
+      </div>
+    </li>
   <%end%>
+  <li>
+  <%= form.submit "Responder", class:"btn btn-light mt-2"%>
+   
+  </li>
 </ul>
+<%end%>
 <% end %>
  <%= paginate @questions %>
+
+ 

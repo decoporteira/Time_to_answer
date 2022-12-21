@@ -147,20 +147,7 @@
   
 
     
-      <div class="bg-light p-5 rounded">
-        <div class="col-sm-8 mx-auto">
-          
-          <%unless params[:term] %>
-
-          <h3>Última perguntas cadastradas:</h3>
-
-          <%else%>
-          <h3>Resultado para o termo: "<%= params[:term]%>"</h3>
-          <%end%>
-
-
-        </div>
-      </div>
+     
       <%= yield %>
     
   </div>
