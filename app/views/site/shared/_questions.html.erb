@@ -14,7 +14,7 @@
       </div>
 
 <% @questions.each do |question| %>
-<%= form_with url: site_answer_path, local: true do |form| %>
+<%= form_with url: site_answer_path do |form| %>
 <ul class="list-group mt-3 mb-2">
   <li class="list-group-item bg-light fs-6 fw-semibold"><%= question.description%></li>
   <% question.answers.each do |answer| %>
@@ -32,7 +32,7 @@
     </li>
   <%end%>
   <li>
-  <%= form.submit "Responder", class:"btn btn-light mt-2"%>
+  <%= form.submit "Responder", class:"mt-2 btn btn-light", id:"submit_#{question.id}"%>
    
   </li>
 </ul>
