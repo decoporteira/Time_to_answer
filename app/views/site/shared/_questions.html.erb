@@ -1,13 +1,7 @@
  <div class="bg-light p-5 rounded">
         <div class="col-sm-8 mx-auto">
+          <h3><%= msg_top_message%></h3>
           
-          <%unless params[:term] %>
-
-          <h3>Última perguntas cadastradas:</h3>
-
-          <%else%>
-          <h3>Resultado para o termo: "<%= params[:term]%>"</h3>
-          <%end%>
 
 
         </div>
@@ -16,7 +10,10 @@
 <% @questions.each do |question| %>
 <%= form_with url: site_answer_path do |form| %>
 <ul class="list-group mt-3 mb-2">
-  <li class="list-group-item bg-light fs-6 fw-semibold"><%= question.description%></li>
+  <li class="list-group-item bg-light fs-6 fw-semibold">
+  <span class="badge text-bg-info text-light"><%= link_to question.subject.description, site_search_subject_path(question.subject_id, question.subject.description), style:"color: white; text-decoration: none" %></span>
+  <%= question.description%>
+  </li>
   <% question.answers.each do |answer| %>
     
 
