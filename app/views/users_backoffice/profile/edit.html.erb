@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Dados do Perfil</h2>
+        
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+<% if @user.errors.any?  %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+    <ul>
+      <% @user.errors.full_messages.each do |message|%>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+        <br>
+        <%= form_with(url: users_backoffice_profile_path, model: @user, local: true, class:"orm-horizontal form-label-left") do |form| %>
+        
+          <%= @user.email%>
+          <div class="item form-group">
+            <%= form.label :first_name, class: "col-form-label col-md-3 col-sm-3 label-align"%>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.text_field :first_name, class:"form-control form-control-user" %>
+            </div>
+          </div>
+
+         <div class="item form-group">
+            <%= form.label :last_name, class: "col-form-label col-md-3 col-sm-3 label-align"%>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.text_field :last_name, class:"form-control form-control-user" %>
+            </div>
+          </div>
+          
+          <div class="item form-group">
+            <%= form.label :email, class: "col-form-label col-md-3 col-sm-3 label-align"%>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.text_field :email, class:"form-control form-control-user", readonly: true %>
+            </div>
+          </div>
+
+          <div class="item form-group">
+            <%= form.label :password, class: "col-form-label col-md-3 col-sm-3 label-align"%>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.password_field :password, class:"form-control form-control-user" %>
+            </div>
+          </div>
+          
+          <div class="item form-group">
+            <%= form.label :password_confirmation, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.password_field :password, class:"form-control form-control-user" %>
+            </div>
+          </div>
+          
+          
+          <div class="ln_solid"></div>
+          <div class="item form-group">
+            <div class="col-md-6 col-sm-6 offset-md-3">
+              
+              <button type="submit" class="btn btn-success">Alterar</button>
+            </div>
+          </div>
+
+        
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
