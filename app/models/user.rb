@@ -4,7 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-          def full_name
-         "#{self.first_name} #{self.last_name}"
-         end
+  has_one :user_profile
+
+  accepts_nested_attributes_for :user_profile, reject_if: :all_blank
+
+  #validations
+  validates :first_name, presence: true, length: {minimum: 2}, on: :update
+
+  #Virtual Attributes
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
 end
