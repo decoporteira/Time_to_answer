@@ -10,5 +10,7 @@
 //= require custom.min
 //= require custom
 //= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
+//= require jquery-ui/ui/widgets/datepicker
+//= require jquery-ui/ui/i18n/datepicker-pt-BR
 //= require ifightcrime-bootstrap-growl-2813755/jquery.bootstrap-growl
 
