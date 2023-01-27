@@ -4,7 +4,7 @@
 
 
 //= require jquery-2/dist/jquery
-//= require bootstrap/dist/js/bootstrap.bundle.min
+# //= require bootstrap/dist/js/bootstrap.bundle.min
 //= require fastclick/lib/fastclick
 //= require nprogress/nprogress
 //= require custom.min
@@ -13,4 +13,5 @@
 //= require jquery-ui/ui/widgets/datepicker
 //= require jquery-ui/ui/i18n/datepicker-pt-BR
 //= require ifightcrime-bootstrap-growl-2813755/jquery.bootstrap-growl
+//= require bootstrap.bundle.min.js
 
