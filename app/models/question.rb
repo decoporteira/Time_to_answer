@@ -7,10 +7,19 @@ class Question < ApplicationRecord
 
   #Scopes  
 
+  #CALLBACK
+  after_create :set_statistic
+
   scope :_search_subject_, -> (page, subject_id){ includes(:answers, :subject).where(subject_id: subject_id).page(page)}
 
   scope :_search_, -> (page, term){ includes(:answers, :subjectrails).where("lower(description) LIKE ?", "%#{term.downcase}%").page(page)}
   
   scope :last_questions, -> (page) {includes(:answers).order("created_at desc").page(page)}
+
+
+  private
+  def set_statistic
+    AdminStatistic.set_event(AdminStatistic::EVENTS[:total_questions])
+  end
 
 end
